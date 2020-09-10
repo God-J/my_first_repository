@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {#只能继承一个模板文件#}
+
+{#重写父模板中的block#}
+{% block content %}
+    {{ super() }}
+    <h1>这是子模版的首页</h1>
+{% endblock %}
+
+{% block foo %}
+    foo
+{% endblock %}
+
+{#继承模板之后无法自己定义标签，如果要写只能现在模板里定义block#}

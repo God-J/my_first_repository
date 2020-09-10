@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% block header %}
+    <ul>
+        <li>首页</li>
+        <li>课程详情</li>
+        <li>视频教程</li>
+        <li>关于我们</li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <h1>这是首页</h1>
+{% endblock %}
+
+{#可以嵌套，但是不能重名#}
+{% block footer %}
+    <div class="footer">
+        这是网站底部
+    </div>
+    {% block foo %}
+        友情链接
+    {% endblock %}
+{% endblock %}
+
+</body>
+</html>

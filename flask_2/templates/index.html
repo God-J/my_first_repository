@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人</title>
+</head>
+<body>
+<h1>{{ username}}</h1>
+<h2>{{age}}</h2>
+
+{#字典嵌套取值#}
+<h3>{{ books.python }}</h3>
+<h4>{{ books['python'] }}</h4>
+
+{#列表取值#}
+<h4>{{ book.0 }}</h4>
+<h4>{{ book[1] }}</h4>
+</body>
+</html>

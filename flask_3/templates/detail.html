@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% include 'commit/head.html' %}
+<h1>这是我的详情页</h1>
+{% include 'commit/foot.html' %}
+
+{% with %}
+    {% set name = 'jiang' %}
+    <p>{{ name }}</p>
+{% endwith %}
+
+{% with name = 'jhs' %}
+    <p>{{ name }}</p>
+{% endwith %}
+
+{% with f=['j', 'h', 's'] %}
+    {% for foo in f %}
+        <p>{{ foo }}</p>
+    {% endfor %}
+{% endwith %}
+
+{% set name = 'huashan' %}
+<p>{{ name }}</p>
+
+</body>
+</html>

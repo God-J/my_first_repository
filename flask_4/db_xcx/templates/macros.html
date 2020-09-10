@@ -1,0 +1,38 @@
+{% macro itemGroup(thumbnail, title, rating) %}
+        <div class="item-group">
+                    <img src="{{url_for('static', filename=thumbnail)}}"
+                         alt="" class="thumbnail">
+                    <p class="item-title">{{title}}</p>
+                    <p class="item-rating">
+                        {% set lights = ((rating|int)/2)|int %}
+                        {% set halfsb = (rating|int)%2 %}
+                        {% set grays = 5-lights-halfsb %}
+                        {% for light in range(0, lights) %}
+                            <img src="{{ url_for('static', filename='images/rate_light.png') }}" alt="">
+                        {% endfor %}
+                        {% for light in range(0, halfsb) %}
+                                <img src="{{ url_for('static', filename='images/rate_half.jpg') }}" alt="">
+                        {% endfor %}
+                        {% for light in range(0, grays) %}
+                                <img src="{{ url_for('static', filename='images/rate_gray.png') }}" alt="">
+                        {% endfor %}
+                        {{ rating }}
+                    </p>
+                </div>
+    {% endmacro %}
+
+{% macro listGroup(type, medias,category=category)%}
+    <div class="item-list-group">
+        <div class="item-list-top">
+            <span class="module-title">{{ type }}</span>
+            <a href="{{ url_for('movie_list', category=category) }}" class="more-btn">更多</a>
+        </div>
+        <div class="list-group">
+            {% for media in medias[0:3] %}
+                {{ itemGroup(media.thumbnail, media.title, media.rating) }}
+            {% endfor %}
+
+
+        </div>
+    </div>
+{% endmacro %}

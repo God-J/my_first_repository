@@ -1,0 +1,36 @@
+{% import 'macro.html' as macro %}
+{#加上 with context可以给宏里面传参#}
+{% import 'macro.html' as macro with context%}
+{% from 'macro.html' import input %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{{ macro.input('username') }}
+{{ input('password', type='password') }}
+{% if username=='hua' %}
+    <p>{{ username }}</p>
+{% else %}
+    <p>当前用户名不是hua</p>
+{% endif %}
+
+{#不可以使用continue和break语句#}
+{% for book in books  %}
+{#    加上索引，默认从1开始#}
+    <p>{{ loop.index }}</p>
+    <p>{{ book }}</p>
+{% endfor %}
+
+<hr>
+{% for key, value in users.items() %}
+{#    判断是否是第一次迭代，返回布尔值#}
+    <p>{{ loop.first }}</p>
+    <p>{{ key}}:{{ value }}</p>
+{% endfor %}
+
+
+</body>
+</html>

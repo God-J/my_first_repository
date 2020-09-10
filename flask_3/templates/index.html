@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>首页</h1>
+    <p>{{ username }}</p>
+    <p>{{ age|abs }}</p>
+    <p>{{ name|default('这个人很懒，并没有任何的签名....') }}</p>
+
+    {# 自动转义#}
+    <p>{{ es }}</p>
+
+    {# 关闭转义#}
+{#    {% autoescape off %}#}
+{#    <p>{{ es }}</p>#}
+{#    {% endautoescape %}#}
+
+    <p>{{ h1|safe }}</p>
+{#    <p>{{ books|first }}</p>#}
+{#    <p>{{ books|last }}</p>#}
+{#    <p>{{ books|first|length }}</p>#}
+{#    <p>{{ username|upper }}</p>#}
+{#    <p>{{ username|replace('hhh', 'Hhh') }}</p>#}
+
+{#    截取指定长度的字符，后面会加上三个点，所以最小长度为3，需注意一下参数的设置#}
+{#    不然无法正常截取#}
+{#    <p>{{ username|truncate(length=3,killwords=True,leeway=0)}}</p>#}
+
+    <p>{{ es|striptags}}</p>
+    <p>{{ books|wordcount }}</p>
+    <p>{{ username|my_cut }}</p>
+    <p>文章发表时间：{{ now_time|handle_time }}</p>
+</body>
+</html>
